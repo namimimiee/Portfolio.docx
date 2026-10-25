@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenna Mae G. Compuesto | BSIT Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        plumDark: '#0e0b16',
+                        plumCard: '#181324',
+                        plumBorder: '#2d223c',
+                        roseGold: '#e8a5b8',
+                        roseGlow: '#f43f5e',
+                        blushPink: '#fbcfe8',
+                        softLavender: '#c084fc',
+                        champagneGold: '#fde68a'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Ambient Soft Dark Plum Background with Subtle Rose Gold Gradients */
+        body {
+            background-color: #0e0b16;
+            background-image: 
+                radial-gradient(circle at 10% 15%, rgba(232, 165, 184, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 90% 85%, rgba(192, 132, 252, 0.06) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.03) 0%, transparent 60%);
+            background-attachment: fixed;
+        }
+
+        /* Rose Gold & Pink Glow Effects */
+        .rose-glow {
+            box-shadow: 0 0 25px rgba(232, 165, 184, 0.15);
+        }
+        .rose-glow-hover:hover {
+            box-shadow: 0 0 20px rgba(232, 165, 184, 0.25);
+            border-color: #e8a5b8;
+        }
+        .text-rose-gradient {
+            background: linear-gradient(135deg, #fbcfe8 0%, #e8a5b8 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0e0b16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2d223c;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e8a5b8;
+        }
+    </style>
+</head>
+<body class="text-slate-300 font-sans antialiased selection:bg-rose-400 selection:text-slate-950 min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-plumDark/80 border-b border-plumBorder">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-2 font-mono text-lg font-bold text-slate-100 hover:text-roseGold transition">
+                <span class="w-2.5 h-2.5 rounded-full bg-roseGold shadow-[0_0_8px_#e8a5b8]"></span>
+                <span class="tracking-tight">Jenna Mae Compuesto</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-8 font-mono text-sm tracking-wide">
+                <a href="#about" class="hover:text-roseGold transition hover:underline underline-offset-8 decoration-roseGold/50">About</a>
+                <a href="#skills" class="hover:text-roseGold transition hover:underline underline-offset-8 decoration-roseGold/50">Skills</a>
+                <a href="#projects" class="hover:text-roseGold transition hover:underline underline-offset-8 decoration-roseGold/50">Projects</a>
+                <a href="#contact" class="hover:text-roseGold transition hover:underline underline-offset-8 decoration-roseGold/50">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-roseGold focus:outline-none p-2" aria-label="Toggle Navigation Menu">
+                <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Nav -->
+        <div id="mobileMenu" class="hidden md:hidden bg-plumCard border-b border-plumBorder px-6 pt-2 pb-5 space-y-3 font-mono text-sm">
+            <a href="#about" class="block py-2 text-slate-300 hover:text-roseGold transition">About</a>
+            <a href="#skills" class="block py-2 text-slate-300 hover:text-roseGold transition">Skills</a>
+            <a href="#projects" class="block py-2 text-slate-300 hover:text-roseGold transition">Projects</a>
+            <a href="#contact" class="block py-2 text-slate-300 hover:text-roseGold transition">Contact</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-28">
+
+        <!-- HERO SECTION -->
+        <section id="home" class="min-h-[80vh] flex flex-col md:flex-row items-center justify-between gap-12 pt-6">
+            <div class="flex-1 space-y-6 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-roseGold/30 bg-roseGold/10 text-roseGold text-xs font-mono tracking-wide">
+                    <span class="w-2 h-2 rounded-full bg-roseGold animate-pulse"></span>
+                    BSIT 4th Year Student • Cebu Eastern College
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-100 tracking-tight leading-tight">
+                    Hello, I'm <br class="hidden sm:inline">
+                    <span class="text-rose-gradient">Jenna Mae Compuesto</span> 
+                </h1>
+                
+                <p class="text-base sm:text-lg text-slate-400 max-w-xl leading-relaxed">
+                    Fourth-year Information Technology student specializing in <strong class="text-slate-200 font-semibold">Web Design & UI/UX Prototyping</strong>, eager to apply modern design principles to real-world projects.
+                </p>
+
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-3 font-mono text-sm">
+                    <a href="#projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-roseGold via-pink-400 to-softLavender text-plumDark font-bold hover:brightness-110 transition shadow-lg shadow-roseGold/20 flex items-center gap-2.5">
+                        <i class="fa-solid fa-sparkles text-xs"></i> View My Portfolio
+                    </a>
+                    <a href="#contact" class="px-6 py-3.5 rounded-xl border border-plumBorder hover:border-roseGold text-slate-300 hover:text-roseGold transition bg-plumCard flex items-center gap-2.5">
+                        <i class="fa-solid fa-paper-plane text-xs"></i> Get In Touch
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Avatar Card -->
+            <div class="w-full md:w-5/12 flex flex-col items-center">
+                <div class="w-full max-w-sm bg-plumCard p-8 rounded-3xl border border-plumBorder rose-glow rose-glow-hover transition duration-500 flex flex-col items-center text-center space-y-5 relative overflow-hidden">
+                    <div class="absolute -top-12 -right-12 w-32 h-32 bg-roseGold/10 rounded-full blur-2xl"></div>
+                    <div class="absolute -bottom-12 -left-12 w-32 h-32 bg-softLavender/10 rounded-full blur-2xl"></div>
+
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-roseGold via-blushPink to-softLavender rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-500"></div>
+                        <div class="relative w-44 h-44 rounded-full overflow-hidden border-2 border-plumBorder bg-plumDark flex items-center justify-center">
+                            <img src="images/profile.jpg" alt="Jenna Mae G. Compuesto" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="w-full h-full hidden flex-col items-center justify-center bg-gradient-to-b from-plumDark to-plumCard text-roseGold">
+                                <i class="fa-solid fa-user-astronaut text-5xl mb-2"></i>
+                                <span class="text-xs font-mono">Jenna Mae</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <h2 class="text-xl font-bold text-slate-100">Jenna Mae G. Compuesto</h2>
+                        <p class="text-xs font-mono text-roseGold tracking-wide">Aspiring Web Designer & Developer</p>
+                    </div>
+
+                    <div class="w-full pt-3 border-t border-plumBorder/60 flex justify-center gap-4 text-slate-400 font-mono text-xs">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-graduation-cap text-roseGold"></i> CEC BSIT</span>
+                        <span>•</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-roseGold"></i> Cebu, PH</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="space-y-6">
+            <div class="flex items-center gap-3">
+                <span class="text-roseGold font-mono text-xl">01.</span>
+                <h2 class="text-2xl font-bold font-mono text-slate-100 tracking-tight">About Me</h2>
+                <div class="h-px bg-plumBorder flex-1"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="md:col-span-2 bg-plumCard p-7 rounded-2xl border border-plumBorder space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+                    <p>
+                        I’m <strong class="text-slate-100 font-semibold">Jenna Mae G. Compuesto</strong>, a fourth-year Bachelor of Science in Information Technology (BSIT) student at <span class="text-roseGold font-medium">Cebu Eastern College, Inc.</span>
+                    </p>
+                    <p>
+                        I am passionate about web design and development and continuously work on improving my technical skills. I also value teamwork, collaboration, and effective communication when working on projects with others.
+                    </p>
+                    <p>
+                        My goal is to gain valuable experience in the IT industry, apply my knowledge to real-world projects, and continue learning new technologies. I am eager to grow professionally and develop the skills needed to become a competent IT professional.
+                    </p>
+                </div>
+
+                <!-- Quick Highlights -->
+                <div class="bg-plumCard p-6 rounded-2xl border border-plumBorder flex flex-col justify-between space-y-4">
+                    <h3 class="font-mono text-roseGold text-xs font-semibold uppercase tracking-wider">// Profile Summary</h3>
+                    <ul class="space-y-3 font-mono text-xs text-slate-300">
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-graduation-cap text-roseGold w-4"></i>
+                            <span>Course: BS Information Technology</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-layer-group text-roseGold w-4"></i>
+                            <span>Year/Section: 4th Year - Sec 5</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-heart text-roseGold w-4"></i>
+                            <span>Focus: Web Design, UI/UX, Audio</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-envelope text-roseGold w-4"></i>
+                            <span class="truncate">jennamaecompuesto@gmail.com</span>
+                        </li>
+                    </ul>
+                    <div class="p-3.5 bg-plumDark/70 rounded-xl border border-plumBorder text-xs text-slate-400 font-mono">
+                        <i class="fa-solid fa-quote-left text-roseGold mr-1"></i> Designing with empathy, building with clarity.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="space-y-6">
+            <div class="flex items-center gap-3">
+                <span class="text-roseGold font-mono text-xl">02.</span>
+                <h2 class="text-2xl font-bold font-mono text-slate-100 tracking-tight">Technical & Soft Skills</h2>
+                <div class="h-px bg-plumBorder flex-1"></div>
+            </div>
+
+            <p class="text-slate-400 max-w-2xl text-sm">
+                A balance of technical web crafting, UI/UX focus, database principles, and active team collaboration.
+            </p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                <!-- Skill Card 1 -->
+                <div class="bg-plumCard p-5 rounded-2xl border border-plumBorder hover:border-roseGold transition duration-300 flex flex-col items-center text-center space-y-2.5 group">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center text-2xl group-hover:scale-110 transition">
+                        <i class="fa-brands fa-html5"></i>
+                    </div>
+                    <span class="font-mono text-sm font-semibold text-slate-200">HTML5</span>
+                    <span class="text-xs text-slate-500 font-mono">Semantic Web</span>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div class="bg-plumCard p-5 rounded-2xl border border-plumBorder hover:border-roseGold transition duration-300 flex flex-col items-center text-center space-y-2.5 group">
+                    <div class="w-12 h-12 rounded-lg bg-pink-500/10 text-roseGold flex items-center justify-center text-2xl group-hover:scale-110 transition">
+                        <i class="fa-brands fa-css3-alt"></i>
+                    </div>
+                    <span class="font-mono text-sm font-semibold text-slate-200">CSS3</span>
+                    <span class="text-xs text-slate-500 font-mono">Styling & Layouts</span>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div class="bg-plumCard p-5 rounded-2xl border border-plumBorder hover:border-roseGold transition duration-300 flex flex-col items-center text-center space-y-2.5 group">
+                    <div class="w-12 h-12 rounded-lg bg-purple-500/10 text-softLavender flex items-center justify-center text-2xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <span class="font-mono text-sm font-semibold text-slate-200">Web Designing</span>
+                    <span class="text-xs text-slate-500 font-mono">UI/UX Prototyping</span>
+                </div>
+
+                <!-- Skill Card 4 -->
+                <div class="bg-plumCard p-5 rounded-2xl border border-plumBorder hover:border-roseGold transition duration-300 flex flex-col items-center text-center space-y-2.5 group">
+                    <div class="w-12 h-12 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <span class="font-mono text-sm font-semibold text-slate-200">Database</span>
+                    <span class="text-xs text-slate-500 font-mono">Data Management</span>
+                </div>
+
+                <!-- Skill Card 5 -->
+                <div class="bg-plumCard p-5 rounded-2xl border border-plumBorder hover:border-roseGold transition duration-300 flex flex-col items-center text-center space-y-2.5 group col-span-2 sm:col-span-1">
+                    <div class="w-12 h-12 rounded-lg bg-rose-500/10 text-pink-300 flex items-center justify-center text-2xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+                    <span class="font-mono text-sm font-semibold text-slate-200">Teamwork</span>
+                    <span class="text-xs text-slate-500 font-mono">& Collaboration</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="space-y-8">
+            <div class="flex items-center gap-3">
+                <span class="text-roseGold font-mono text-xl">03.</span>
+                <h2 class="text-2xl font-bold font-mono text-slate-100 tracking-tight">Featured Projects</h2>
+                <div class="h-px bg-plumBorder flex-1"></div>
+            </div>
+
+            <div class="space-y-8">
+
+                <!-- PROJECT 1: SigaRuta (Capstone) -->
+                <div class="bg-plumCard rounded-3xl border border-plumBorder p-6 sm:p-8 space-y-6 hover:border-roseGold/60 transition duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 px-4 py-1.5 bg-roseGold/10 text-roseGold border-b border-l border-roseGold/30 text-xs font-mono rounded-bl-xl">
+                        BSIT Capstone (AY 2026-2027)
+                    </div>
+
+                    <div class="space-y-2">
+                        <span class="text-xs font-mono text-roseGold uppercase tracking-wider">// Featured Capstone Project</span>
+                        <h3 class="text-2xl font-bold text-slate-100 group-hover:text-blushPink transition">SigaRuta</h3>
+                        <p class="text-sm font-mono text-slate-400">AI-Driven Mobile Application for Streetlight Failure Detection, Reporting, and Tracking</p>
+                        <p class="text-xs text-slate-500"><i class="fa-solid fa-location-dot text-roseGold mr-1"></i> Cebu Eastern College Inc. • Tisa, Cebu City</p>
+                    </div>
+
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        An AI-powered mobile app and web dashboard designed for Tisa, Cebu City that replaces manual streetlight inspections with <strong>YOLOv8-Nano computer vision</strong> to detect visible streetlight failures from smartphone photos, records GPS geotags, identifies post types, and enables LGU maintenance tracking and verification.
+                    </p>
+
+                    <!-- Contribution Box -->
+                    <div class="bg-plumDark/80 p-4 rounded-xl border border-plumBorder space-y-2">
+                        <div class="text-xs font-mono text-roseGold font-semibold flex items-center gap-2">
+                            <i class="fa-solid fa-compass-drafting"></i> My Contribution: Lead UI/UX Designer
+                        </div>
+                        <p class="text-xs text-slate-400">
+                            Responsible for designing intuitive mobile app mockups, user flows, and the web dashboard interface for LGU maintenance teams.
+                        </p>
+                        <div class="text-xs text-slate-400 font-mono pt-1">
+                            <span class="text-slate-500">Co-Authors:</span> Justine Crist Ancajas, Ralph Laurence Baar, Christian Baclay, Petal C. Peñaloza
+                        </div>
+                    </div>
+
+                    <!-- Tech Stack Badges -->
+                    <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
+                        <span class="px-3 py-1 bg-plumDark text-roseGold rounded-lg border border-plumBorder">YOLOv8-Nano</span>
+                        <span class="px-3 py-1 bg-plumDark text-roseGold rounded-lg border border-plumBorder">UI/UX Design</span>
+                        <span class="px-3 py-1 bg-plumDark text-roseGold rounded-lg border border-plumBorder">Computer Vision</span>
+                        <span class="px-3 py-1 bg-plumDark text-roseGold rounded-lg border border-plumBorder">GPS Geotagging</span>
+                        <span class="px-3 py-1 bg-plumDark text-roseGold rounded-lg border border-plumBorder">Web Dashboard</span>
+                    </div>
+                </div>
+
+                <!-- PROJECT 2: Darkwood Escape -->
+                <div class="bg-plumCard rounded-3xl border border-plumBorder p-6 sm:p-8 space-y-6 hover:border-softLavender/60 transition duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 px-4 py-1.5 bg-softLavender/10 text-softLavender border-b border-l border-softLavender/30 text-xs font-mono rounded-bl-xl">
+                        BSIT - 4 Section 5 • Group 5
+                    </div>
+
+                    <div class="space-y-2">
+                        <span class="text-xs font-mono text-softLavender uppercase tracking-wider">// Game Development Project (Aug 2026)</span>
+                        <h3 class="text-2xl font-bold text-slate-100 group-hover:text-blushPink transition">Darkwood Escape</h3>
+                        <p class="text-sm font-mono text-slate-400">Roblox-Based Multiplayer Horror Survival Game</p>
+                        <p class="text-xs text-slate-500"><i class="fa-solid fa-chalkboard-user text-softLavender mr-1"></i> Instructor: Ms. Hazel Queen Quibol</p>
+                    </div>
+
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        A 2-6 player cooperative survival horror game developed in Roblox Studio (Lua) set in the cursed Darkwood Forest. Players collaborate to solve puzzles, gather items, evade AI patrol enemies, and unlock the escape gate under pressure.
+                    </p>
+
+                    <!-- Contribution Box -->
+                    <div class="bg-plumDark/80 p-4 rounded-xl border border-plumBorder space-y-2">
+                        <div class="text-xs font-mono text-softLavender font-semibold flex items-center gap-2">
+                            <i class="fa-solid fa-sliders"></i> My Contribution: Audio Manager / Audio Editor
+                        </div>
+                        <p class="text-xs text-slate-400">
+                            Managed and edited immersive ambient soundscapes, horror sound effects, dynamic audio triggers, and spatial sound positioning to enhance game suspense.
+                        </p>
+                        <div class="text-xs text-slate-400 font-mono pt-1">
+                            <span class="text-slate-500">Team Members:</span> Petal C. Peñaloza (QA & Docs), Kate L. Pahilanco (UI/UX), Jenna Mae G. Compuesto (Audio), Christian V. Baclay (PM), Ralph Laurence F. Baar (Programmer)
+                        </div>
+                    </div>
+
+                    <!-- Tech Stack Badges -->
+                    <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
+                        <span class="px-3 py-1 bg-plumDark text-softLavender rounded-lg border border-plumBorder">Roblox Studio</span>
+                        <span class="px-3 py-1 bg-plumDark text-softLavender rounded-lg border border-plumBorder">Lua</span>
+                        <span class="px-3 py-1 bg-plumDark text-softLavender rounded-lg border border-plumBorder">Multiplayer Networking</span>
+                        <span class="px-3 py-1 bg-plumDark text-softLavender rounded-lg border border-plumBorder">AI Patrol System</span>
+                        <span class="px-3 py-1 bg-plumDark text-softLavender rounded-lg border border-plumBorder">Audio Editing</span>
+                    </div>
+                </div>
+
+                <!-- PROJECT 3: Adore Couture Charm -->
+                <div class="bg-plumCard rounded-3xl border border-plumBorder p-6 sm:p-8 space-y-6 hover:border-pink-300/60 transition duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 px-4 py-1.5 bg-pink-300/10 text-pink-300 border-b border-l border-pink-300/30 text-xs font-mono rounded-bl-xl">
+                        1st Year Project
+                    </div>
+
+                    <div class="space-y-2">
+                        <span class="text-xs font-mono text-pink-300 uppercase tracking-wider">// Web Systems & Technology Individual Project</span>
+                        <h3 class="text-2xl font-bold text-slate-100 group-hover:text-blushPink transition">Adore Couture Charm</h3>
+                        <p class="text-sm font-mono text-slate-400">Clean, Minimal E-Commerce Website Interface</p>
+                    </div>
+
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        A clean, minimal, and responsive e-commerce website interface designed for a trendy fashion boutique. Built individually to practice web layout standards, component structuring, and modern front-end design techniques.
+                    </p>
+
+                    <!-- Contribution Box -->
+                    <div class="bg-plumDark/80 p-4 rounded-xl border border-plumBorder space-y-2">
+                        <div class="text-xs font-mono text-pink-300 font-semibold flex items-center gap-2">
+                            <i class="fa-solid fa-code"></i> My Contribution: Designer & Developer (Individual)
+                        </div>
+                        <p class="text-xs text-slate-400">
+                            Designed the entire UI/UX layout and wrote semantic HTML, CSS, and interactive JavaScript components from scratch.
+                        </p>
+                    </div>
+
+                    <!-- Tech Stack Badges -->
+                    <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
+                        <span class="px-3 py-1 bg-plumDark text-pink-300 rounded-lg border border-plumBorder">HTML5</span>
+                        <span class="px-3 py-1 bg-plumDark text-pink-300 rounded-lg border border-plumBorder">CSS3</span>
+                        <span class="px-3 py-1 bg-plumDark text-pink-300 rounded-lg border border-plumBorder">JavaScript</span>
+                        <span class="px-3 py-1 bg-plumDark text-pink-300 rounded-lg border border-plumBorder">Web Design</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="space-y-8">
+            <div class="flex items-center gap-3">
+                <span class="text-roseGold font-mono text-xl">04.</span>
+                <h2 class="text-2xl font-bold font-mono text-slate-100 tracking-tight">Get In Touch</h2>
+                <div class="h-px bg-plumBorder flex-1"></div>
+            </div>
+
+            <div class="bg-plumCard rounded-3xl border border-plumBorder p-8 text-center max-w-2xl mx-auto space-y-6 rose-glow">
+                <div class="w-16 h-16 bg-roseGold/10 text-roseGold rounded-2xl flex items-center justify-center text-2xl mx-auto border border-roseGold/20">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+
+                <div class="space-y-2">
+                    <h3 class="text-2xl font-bold text-slate-100">Let's Work Together</h3>
+                    <p class="text-sm text-slate-400">
+                        I am eager to explore internship or entry-level opportunities in IT, web design, or creative tech projects.
+                    </p>
+                </div>
+
+                <!-- Email Display & Action -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 bg-plumDark p-3.5 rounded-2xl border border-plumBorder font-mono text-sm">
+                    <span id="emailText" class="text-slate-200 select-all">jennamaecompuesto@gmail.com</span>
+                    <button onclick="copyEmail()" class="px-3.5 py-2 bg-plumCard hover:bg-plumBorder text-roseGold text-xs rounded-xl transition flex items-center gap-2 border border-plumBorder">
+                        <i class="fa-regular fa-copy"></i>
+                        <span id="copyBtnText">Copy Email</span>
+                    </button>
+                </div>
+
+                <div class="pt-2">
+                    <a href="mailto:jennamaecompuesto@gmail.com" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-roseGold via-pink-400 to-softLavender text-plumDark font-bold hover:brightness-110 transition shadow-lg shadow-roseGold/20 font-mono text-sm">
+                        <i class="fa-solid fa-paper-plane"></i> Send Email Directly
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-plumBorder bg-plumDark py-8 mt-24">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-2 font-mono text-xs text-slate-500">
+            <p>Designed & Built with <i class="fa-solid fa-heart text-roseGold text-xs px-0.5"></i> by <span class="text-slate-300">Jenna Mae Gomez Compuesto</span></p>
+            <p>BSIT 4th Year • Cebu Eastern College, Inc.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Copy Email Function
+        function copyEmail() {
+            const email = "jennamaecompuesto@gmail.com";
+            
+            const textarea = document.createElement("textarea");
+            textarea.value = email;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+
+            const copyBtnText = document.getElementById("copyBtnText");
+            copyBtnText.innerText = "Copied!";
+            setTimeout(() => {
+                copyBtnText.innerText = "Copy Email";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
